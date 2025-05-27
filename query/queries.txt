@@ -1,0 +1,222 @@
+﻿//получение инфы о клубе по логин/паролю
+post-запрос на http://noble.gensol.ru/query/clients.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'club_get', //название действия		
+	'device_id' => '1a2b3c2', //id устройства, с которого заходят	
+
+]
+
+//логаут клуба
+post-запрос на http://noble.gensol.ru/query/clients.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'club_exit', //название действия			
+
+]
+
+//восстановление пароля
+post-запрос на http://noble.gensol.ru/query/clients.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'api_event' => 'club_password_recovery', //название действия			 
+
+]
+
+
+
+//добавление клиента
+post-запрос на http://noble.gensol.ru/query/clients.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'api_event' => 'client_add', //название действия
+	'client_name' => 'xxx', //ФИО
+	'client_sex' => 'man/woman', //пол  
+	'client_age' => '2000-02-05', //возраст
+	'client_visit' => '999', //кол-во посещений
+	'club_id' => '999', //id клуба
+	'client_sirname' => 'фвывфывыфв',  //фамилия
+	'client_patronymic' => 'фвывфывыфв', //отчество
+	'client_height' => '195', //высота
+	'client_weight' => '80', //вес
+	'client_phone' => '+78589566544', //тел
+	'client_measurements' => 'массив',
+	'client_trainings' => 'массив',
+	$_FILES['client_foto']	картинка			 
+
+]
+//Ответ: ID клиента 'client_id' 
+
+//редактирование клиента
+post-запрос на http://noble.gensol.ru/query/clients.php
+$_POST [
+	'api_key' => 'xxx', //пароль api
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'client_redact', //название действия
+	'client_id' => '999', //id клиента в базе
+	'client_name' => 'xxx', //ФИО
+	'client_sex' => 'man/woman', //пол  
+	'client_age' => '2000-02-05', //возраст
+	'client_visit' => '999', //кол-во посещений
+	'club_id' => '999', //id клуба
+	'client_sirname' => 'фвывфывыфв',  //фамилия
+	'client_patronymic' => 'фвывфывыфв', //отчество
+	'client_height' => '195', //высота
+	'client_weight' => '80', //вес
+	'client_phone' => '+78589566544', //тел
+	'client_measurements' => 'массив',
+	'client_trainings' => 'массив',
+	$_FILES['client_foto']	картинка
+]
+//Ответ: 1 
+
+//удаление клиента
+post-запрос на http://noble.gensol.ru/query/clients.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'client_delete', //название действия
+	'client_id' => '999', //id клиента в базе
+	'club_id' => '999', //id клуба
+]
+//Ответ: 1
+
+
+//получение списка клиентов
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации	
+	'api_event' => 'client_get'	
+	'api_filter_ids' => массив, //массив ID, которые нужно найти 	
+	'api_filter_names' => массив, //массив имен, которые нужно найти 	
+	'api_filter_sirnames' => массив, //массив фамилий, которые нужно найти	
+	'api_filter_patronymics' => массив, //массив отчеств, которые нужно найти	
+	'api_sort' => "sirname" или "dateS"	
+	'club_id' => '999', //id клуба
+]
+//Ответ: json_encode(массив)
+Пример: 
+[{"id":"22","page_name":"\u041f\u0430\u0432\u0435\u043b","sex":"man","age":"2000-02-05","vis":"1","pos":"8","sirname":"\u0411\u0443\u043d\u0438\u043d","dateS":"1584020401","patronymic":"\u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447","hit":"0","height":"197","weight":"90","citate":"","phone":"2147483647","foto":"78_kanalopromyvochnaya-mashina-ko-2.png","trainings":"s:3:\"xxx\";","measurements":"s:3:\"xxx\";","club":"MMA","pos5":"88","url":""},{"id":"20","page_name":"\u041f\u0430\u0432\u0435\u043b","sex":"man","age":"2000-02-05","vis":"1","pos":"6","sirname":"\u041f\u0443\u0442\u0438\u043d","dateS":"1582654488","patronymic":"\u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447","hit":"0","height":"","weight":"","citate":"","phone":"","foto":"","trainings":"","measurements":"","club":"MMA","pos5":"88","url":""}] 
+
+
+//добавление тренировки
+post-запрос на http://noble.gensol.ru/query/training.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'training_add', //название действия
+	'training_name' => 'xxx', название тренировки 
+	'training_status' => 1 или 0 //1-тренировка прошла, 0-отменена
+	'club_id' => '999', //id клуба
+	'training_duration'=>'999', //продолжительность тренировки	
+	'training_info' => массив
+]
+//Ответ: ID тренировки 'training_id'
+
+//редактирование тренировки
+post-запрос на http://noble.gensol.ru/query/training.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'training_redact', //название действия
+	'training_id' => '999', //id тренировки в базе
+	'training_name' => 'xxx', //название тренировки
+	'training_status' => 1 или 0 //1-тренировка прошла, 0-отменена
+	'club_id' => '999', //id клуба
+	'training_duration'=>'999', //продолжительность тренировки	
+	'training_info' => массив
+]
+//Ответ: 1 
+
+//удаление тренировки
+post-запрос на http://noble.gensol.ru/query/training.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'training_delete', //название действия
+	'training_id' => '999', //id тренировки в базе
+	'club_id' => '999', //id клуба
+]
+//Ответ: 1
+
+//получение списка тренировок
+post-запрос на http://noble.gensol.ru/query/training.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации	
+	'api_event' => 'training_get',	
+	'api_filter_ids' => массив, //массив ID, которые нужно найти 	
+	'api_filter_names' => массив, //массив имен, которые нужно найти 	
+	'club_id' => '999', //id клуба
+]
+//Ответ: json_encode(массив)
+[{"id":"132","page_name":"Zumba","vis":"0","pos":"128","dateS":"1581942913","category":"95","duration":"","info":""},{"id":"130","page_name":"Zumba","vis":"0","pos":"126","dateS":"1581856513","category":"95","duration":"","info":""}] 
+
+
+
+//добавление устройства
+post-запрос на http://noble.gensol.ru/query/device.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'device_add', //название действия
+	'device_name' => 'xxx', название устройства 
+	'club_id' => '999', //id клуба
+	'device_info' => массив
+]
+//Ответ: ID устройства 'device_id'
+
+//редактирование устройства
+post-запрос на http://noble.gensol.ru/query/device.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'device_redact', //название действия
+	'device_id' => '999', //id устройства в базе
+	'device_name' => 'xxx', //название устройства
+	'club_id' => '999', //id клуба
+	'device_info' => массив
+]
+//Ответ: 1 
+
+//удаление устройства
+post-запрос на http://noble.gensol.ru/query/device.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации
+	'api_event' => 'device_delete', //название действия
+	'device_id' => '999', //id устройства в базе
+	'club_id' => '999', //id клуба
+]
+//Ответ: 1
+
+
+
+//получение списка устройств
+post-запрос на http://noble.gensol.ru/query/device.php
+$_POST [
+	'api_key' => 'xxx', //пароль
+	'user_email' => 'adsa@ddf.ru', //имейл клуба для авторизации
+	'user_pass' => '1111', //пароль клуба для авторизации	
+	'api_event' => 'device_get',	
+	'api_filter_ids' => массив, //массив ID, которые нужно найти 
+	'api_filter_names' =>  	массив, //массив имен, которые нужно найти 
+	'club_id' => '999', //id клуба
+]
+//Ответ: json_encode(массив)
+[{"id":"49","page_name":"\u0422\u0440\u0435\u043d\u0430\u0436\u0435\u0440 #5","vis":"1","pos":"7","club_id":"95","club":"MMA","dateS":"1578821001","info":""},{"id":"48","page_name":"\u0422\u0440\u0435\u043d\u0430\u0436\u0435\u0440 #4","vis":"1","pos":"6","club_id":"95","club":"MMA","dateS":"1581585800","info":""}] 

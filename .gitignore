@@ -1,0 +1,26 @@
+# Ігноруємо системні/небезпечні файли
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Папки, які не потрібно відправляти на GitHub
+admin/
+config/
+
+# Файл конфігурації веб-сервера Apache
+.htaccess
+
+# IDE/редактори
+.idea/
+.vscode/
+
+# Composer (якщо використовуєш)
+vendor/
+composer.lock
+
+# Файли з секретами
+.env
+db.php
+config.php
