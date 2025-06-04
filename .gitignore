@@ -8,6 +8,7 @@ Thumbs.db
 # Папки, які не потрібно відправляти на GitHub
 admin/
 config/
+node_modules/
 
 # Файл конфігурації веб-сервера Apache
 .htaccess
