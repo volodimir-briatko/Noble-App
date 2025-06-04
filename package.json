@@ -1,0 +1,17 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "Приклад проєкту з ESLint",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "start": "node index.js"
+  },
+  "author": "Твоє ім’я",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.1"
+  },
+  "type": "module"
+}
